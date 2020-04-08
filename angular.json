@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fluffy-potato": {
+    "mini-amazon-go-front-end": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fluffy-potato",
+            "outputPath": "dist/mini-amazon-go-front-end",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fluffy-potato:build"
+            "browserTarget": "mini-amazon-go-front-end:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "fluffy-potato:build:production"
+              "browserTarget": "mini-amazon-go-front-end:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fluffy-potato:build"
+            "browserTarget": "mini-amazon-go-front-end:build"
           }
         },
         "test": {
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "fluffy-potato:serve"
+            "devServerTarget": "mini-amazon-go-front-end:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "fluffy-potato:serve:production"
+              "devServerTarget": "mini-amazon-go-front-end:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "fluffy-potato"
+  "defaultProject": "mini-amazon-go-front-end"
 }
