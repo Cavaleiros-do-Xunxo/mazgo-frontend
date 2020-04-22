@@ -1,23 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShelfComponent } from './shelf/shelf.component';
-import { AppComponent } from './app.component';
-
+import { ProductsComponent } from './views/products/products.component';
 
 const routes: Routes = [
   {
-    component: ShelfComponent,
-    path: 'teste'
-  },
-  {
-    component: AppComponent,
+    component: ProductsComponent,
     path: '',
     pathMatch: 'full'
   },
   {
-    component: AppComponent,
+    component: ProductsComponent,
     path: '**'
-  },
+  }
 ];
 
 @NgModule({

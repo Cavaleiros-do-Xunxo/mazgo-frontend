@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShelfComponent } from './shelf/shelf.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ProductsComponent } from './views/products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShelfComponent
+    HeaderComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
