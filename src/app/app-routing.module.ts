@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductsComponent } from './views/products/products.component';
+import { HistoryComponent } from './views/history/history.component';
 
 const routes: Routes = [
   {
     component: ProductsComponent,
     path: '',
+    pathMatch: 'full'
+  },
+  {
+    component: HistoryComponent,
+    path: 'history',
     pathMatch: 'full'
   },
   {

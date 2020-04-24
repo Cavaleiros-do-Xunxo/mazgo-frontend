@@ -1,0 +1,42 @@
+<div class="uk-container uk-background-default">
+    <div class="uk-grid-small uk-child-width-expand@s" uk-grid>
+        <fieldset class="uk-fieldset">
+            <legend class="uk-legend uk-margin-small-bottom">Detections History</legend>
+            <div class="uk-grid-small uk-grid-match" uk-grid>
+                <div class="uk-width-1-2@s">
+                    <input class="uk-input" type="text" id="startDate" [(ngModel)]="startDate" placeholder="dd/mm/yyyy">
+                </div>
+                <div class="uk-width-1-2@s">
+                    <input class="uk-input" type="text" id="finishDate" [(ngModel)]="finishDate"
+                        placeholder="dd/mm/yyyy">
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <hr class="uk-divider-icon" />
+
+    <div class="uk-child-width-1-3@m" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-body">
+                    <h4 class="uk-card-title">Detected when: <br /> 22/04/2019 at 09:06AM</h4>
+                </div>
+                <div class="uk-card-media-bottom">
+                    <img src="https://avatars3.githubusercontent.com/u/35928505?s=460&u=811a091e3cb50aa6f0799879845ce71dcd43e831&v=4"
+                        alt="">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-body">
+                    <h4 class="uk-card-title">Detected when: <br /> 22/04/2019 at 10:13AM</h4>
+                </div>
+                <div class="uk-card-media-bottom">
+                    <img src="https://avatars1.githubusercontent.com/u/7545720?s=400&v=4" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
