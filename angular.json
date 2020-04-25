@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mini-amazon-go-front-end"
+    }
+  },
+  "defaultProject": "mini-amazon-go-front-end",
+  "cli": {
+    "analytics": "2dbd7417-08ee-409e-b9cf-5a89767c4615"
+  }
 }
