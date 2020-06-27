@@ -14,7 +14,7 @@
                         [ngModel]="finishDate" placeholder="dd/mm/yyyy">
                 </div>
                 <div class="uk-width-1-5@s uk-flex uk-flex-bottom">
-                    <button class="uk-button uk-button-primary">
+                    <button (click)="getHistorys()" class="uk-button uk-button-primary">
                         <span uk-icon="search"></span> Search
                     </button>
                 </div>
@@ -24,29 +24,22 @@
 
     <hr class="uk-divider-icon" />
 
-    <div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
-        <div>
-            <div class="uk-card uk-card-default">
+
+    <div>
+        <div class="uk-card uk-card-default">
+            <div *ngFor="let history of historys">
+                <div #historyStatus class="uk-card-badge uk-label"
+                     [ngClass]="'uk-label-' + getHistoryStatusClass(history.dat)">
+                    {{ getHistoryStatusClass(history.dat) }}</div>
                 <div class="uk-card-body">
-                    <h4 class="uk-card-title">Change detected</h4>
-                    <p>Time: 22/04/2019 10:13AM</p>
+                    <h3 class="uk-card-title">Change detected</h3>    
+                    <h5 class="uk-card-type">Type : {{ history.action }}</h5>
+                    <h5 class="uk-card-quantity">Quantity : {{history.quantity}}</h5>
+                    <h5 class="uk-card-time">Time: {{convertMilisec(history.timestamp)}}</h5>                   
                 </div>
-                <div class="uk-card-media-bottom">
-                    <img src="https://avatars3.githubusercontent.com/u/35928505?s=460&u=811a091e3cb50aa6f0799879845ce71dcd43e831&v=4"
-                        alt="">
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="uk-card uk-card-default">
-                <div class="uk-card-body">
-                    <h4 class="uk-card-title">Change detected</h4>
-                    <p>Time: 22/04/2019 11:13AM</p>
-                </div>
-                <div class="uk-card-media-bottom">
-                    <img src="https://avatars1.githubusercontent.com/u/7545720?s=400&v=4" alt="">
+                <div class="uk-width-1-3@m">
+                    <img [srcset]="history.image" width="500" height="500" alt="" uk-img>
                 </div>
             </div>
         </div>
     </div>
-</div>
