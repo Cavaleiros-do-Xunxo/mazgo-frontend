@@ -1,3 +1,8 @@
 .uk-table-hover tbody tr:hover, .uk-table-hover > tr:hover {
     background-color: #F8F8F8 !important;
 }
+
+.uk-button-success {
+    background-color: #66bb6a;
+    color: white;
+}
