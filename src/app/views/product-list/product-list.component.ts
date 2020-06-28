@@ -5,11 +5,11 @@ import {Product} from "../../models/Product";
 
 @Component({
     selector: 'app-products',
-    templateUrl: './products.component.html',
-    styleUrls: ['./products.component.css'],
+    templateUrl: './product-list.component.html',
+    styleUrls: ['./product-list.component.css'],
     providers: [ProductService]
 })
-export class ProductsComponent implements OnInit {
+export class ProductListComponent implements OnInit {
 
     public productName: FormControl = new FormControl('', [Validators.min(1)]);
     public products: Product[] = [];

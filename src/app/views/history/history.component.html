@@ -27,7 +27,7 @@
     <div *ngFor="let history of history" class="uk-card uk-card-default uk-card-body uk-margin-top">
         <div class="uk-grid">
             <div class="uk-width-1-6@m">
-                <img src="{{history.image}}" alt="Image" class="history-image">
+                <img src="{{history.image}}" alt="{{history.product.name}}" class="history-image">
             </div>
             <div class="uk-width-expand@m">
                 <table class="uk-table uk-table-small uk-table-striped uk-table-hover">
