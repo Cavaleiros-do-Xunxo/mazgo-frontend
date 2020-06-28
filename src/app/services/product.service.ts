@@ -1,22 +1,21 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from "../../environments/environment";
+import {Observable} from "rxjs";
+import {Product} from "../models/Product";
+import {map} from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ProductService {
 
-  private REST_API_URL = "https://mazgo.notfab.net";
-
-  constructor(private httpClient: HttpClient) { }
-
-  async getProducts(): Promise<any> {
-    try {
-      const data = await this.httpClient.get(this.REST_API_URL + "/products").toPromise();
-      return data;
-    } catch (err) {
-      console.error(`Error fetching data from API: ${err}`);
-      return [];
+    constructor(private httpClient: HttpClient) {
     }
-  }
+
+    getProducts(): Observable<Product[]> {
+        return this.httpClient.get<any>(environment.api + "/products")
+            .pipe(map(x => x.items));
+    }
+
 }
