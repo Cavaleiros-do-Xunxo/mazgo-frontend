@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    api: 'https://mazgo.notfab.net'
+    api: 'https://mazgo-api.notfab.net'
 };
 
 /*
