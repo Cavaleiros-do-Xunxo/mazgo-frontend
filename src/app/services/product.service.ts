@@ -1,20 +1,40 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import Product from '../models/Product';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from "../../environments/environment";
+import {Observable} from "rxjs";
+import {Product} from "../models/Product";
+import {map} from "rxjs/operators";
+import {ProductHistory} from "../models/ProductHistory";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private httpClient: HttpClient) { }
+    constructor(private httpClient: HttpClient) {
+    }
 
-  // @TODO: fetch data from API.
-  getProducts(): Array<Product> {
-    const apple = new Product('Apple', 15, 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTvh_fUPArPDkJj9dWXPFV3iWrmVaL8mYhYdUQB3QCqRnA72a99&usqp=CAU');
-    const potato = new Product('Potato', 0, 'https://www.veggieprezi.com/wp-content/uploads/2017/09/20170731_214129-555x688.jpg');
-    const bread = new Product('Bread', 5, 'https://www.ambitiouskitchen.com/wp-content/uploads/2019/04/Multi-Grain-Seedy-Sandwich-Bread-Edited-5sq.jpg');
+    getProducts(): Observable<Product[]> {
+        return this.httpClient.get<any>(environment.api + "/products")
+            .pipe(map(x => x.items));
+    }
 
-    return [apple, potato, bread];
-  }
+    getById(id: string): Observable<Product> {
+        return this.httpClient.get<Product>(environment.api + "/products/" + id);
+    }
+
+    getHistory(id: string): Observable<ProductHistory[]> {
+        return this.httpClient.get<any>(environment.api + "/products/" + id + "/history")
+            .pipe(map(x => x.content));
+    }
+
+    addProduct(name: string, identifier: string, quantity: number, image: string): Observable<Product> {
+        return this.httpClient.post<Product>(environment.api + '/products', {
+            'name': name,
+            'identifier': identifier,
+            'quantity': quantity,
+            'image': image
+        });
+    }
+
 }
