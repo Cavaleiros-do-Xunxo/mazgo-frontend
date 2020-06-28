@@ -27,4 +27,14 @@ export class ProductService {
         return this.httpClient.get<any>(environment.api + "/products/" + id + "/history")
             .pipe(map(x => x.content));
     }
+
+    addProduct(name: string, identifier: string, quantity: number, image: string): Observable<Product> {
+        return this.httpClient.post<Product>(environment.api + '/products', {
+            'name': name,
+            'identifier': identifier,
+            'quantity': quantity,
+            'image': image
+        });
+    }
+
 }

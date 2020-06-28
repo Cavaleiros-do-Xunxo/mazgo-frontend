@@ -1,0 +1,52 @@
+<div class="uk-container">
+    <div class="uk-card uk-card-default">
+        <div class="uk-card-header">
+            <h3 class="uk-card-title">
+                New Product
+            </h3>
+        </div>
+        <div class="uk-card-body">
+            <form class="uk-form-horizontal">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="name">
+                        Name
+                    </label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="name" name="name" type="text" placeholder="Name"
+                               [(ngModel)]="name" [disabled]="loading">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="identifier">
+                        Identifier
+                    </label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="identifier" name="identifier" type="text" placeholder="Name"
+                               [(ngModel)]="identifier" [disabled]="loading">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="quantity">
+                        In Stock
+                    </label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="quantity" name="quantity" type="number" placeholder="0"
+                               [(ngModel)]="quantity" [disabled]="loading">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="image">
+                        Image
+                    </label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="image" name="image" type="text" placeholder="https://i.imgur.com/"
+                               [(ngModel)]="image" [disabled]="loading">
+                    </div>
+                </div>
+            </form>
+            <button class="uk-button uk-button-success" (click)="add()" [disabled]="loading">
+                Add
+            </button>
+        </div>
+    </div>
+</div>

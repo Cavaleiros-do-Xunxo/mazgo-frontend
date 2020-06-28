@@ -6,7 +6,3 @@
 .uk-table-small td, .uk-table-small th {
     padding: 6px 8px;
 }
-
-.uk-table-hover tbody tr:hover, .uk-table-hover > tr:hover {
-    background-color: #F8F8F8 !important;
-}

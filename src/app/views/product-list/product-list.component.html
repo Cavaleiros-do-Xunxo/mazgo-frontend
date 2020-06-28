@@ -1,4 +1,4 @@
-<div class="uk-container uk-background-default">
+<div class="uk-container">
     <div class="uk-child-width-expand@s" uk-grid>
         <fieldset class="uk-fieldset">
             <legend class="uk-legend">Products</legend>
@@ -33,7 +33,7 @@
 
     <div class="uk-grid uk-grid-small uk-child-width-1-2@m uk-grid-match">
         <div *ngFor="let product of products">
-            <div class="uk-card uk-card-small uk-card-default uk-card-hover" routerLink="/products/{{product.id}}">
+            <div class="uk-card uk-card-small uk-card-default uk-card-hover uk-margin-bottom" routerLink="/products/{{product.id}}">
                 <div class="uk-card-body">
                     <div class="uk-card-badge uk-label"
                          [ngClass]="'uk-label-' + getStockStatusClass(product.quantity)">

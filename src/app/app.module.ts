@@ -9,6 +9,7 @@ import { HistoryComponent } from './views/history/history.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './views/product/product.component';
+import { ProductAddComponent } from './views/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ProductComponent } from './views/product/product.component';
     ProductListComponent,
     HistoryComponent,
     ProductComponent,
+    ProductAddComponent,
   ],
   imports: [
       BrowserModule,
