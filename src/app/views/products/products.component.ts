@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {ProductService} from 'src/app/services/product.service';
+import {Product} from "../../models/Product";
 
 @Component({
     selector: 'app-products',
@@ -11,7 +12,7 @@ import {ProductService} from 'src/app/services/product.service';
 export class ProductsComponent implements OnInit {
 
     public productName: FormControl = new FormControl('', [Validators.min(1)]);
-    public products: any = [];
+    public products: Product[] = [];
 
     public statusCheckbox = {
         IN_STOCK: false,
