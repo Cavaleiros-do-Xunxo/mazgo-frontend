@@ -21,13 +21,22 @@ export class ProductComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         const id = this.route.snapshot.paramMap.get('id');
-        this.service.getById(id).subscribe(product => {
-            this.product = product;
-        });
+        this.getProduct(id);
         this.getHistory(id);
         this.time = setInterval(() => {
             this.getHistory(id);
+            this.getProduct(id);
         }, 5000);
+    }
+
+    private getProduct(id: string): void {
+        this.service.getById(id).subscribe(product => {
+            if (this.product
+                && this.product.quantity == product.quantity) {
+                return;
+            }
+            this.product = product;
+        });
     }
 
     private getHistory(id: string): void {
