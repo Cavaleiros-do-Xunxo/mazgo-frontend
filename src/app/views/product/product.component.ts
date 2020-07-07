@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../services/product.service";
 import {Product} from "../../models/Product";
@@ -10,10 +10,11 @@ import * as moment from 'moment';
     templateUrl: './product.component.html',
     styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, OnDestroy {
 
     product: Product;
     history: ProductHistory[];
+    time = null;
 
     constructor(private route: ActivatedRoute, private service: ProductService) {
     }
@@ -23,7 +24,18 @@ export class ProductComponent implements OnInit {
         this.service.getById(id).subscribe(product => {
             this.product = product;
         });
+        this.getHistory(id);
+        this.time = setInterval(() => {
+            this.getHistory(id);
+        }, 5000);
+    }
+
+    private getHistory(id: string): void {
         this.service.getHistory(id).subscribe(history => {
+            if (this.history
+                && this.history.length == history.length) {
+                return;
+            }
             this.history = history;
         });
     }
@@ -48,6 +60,10 @@ export class ProductComponent implements OnInit {
         } else {
             return "danger";
         }
+    }
+
+    ngOnDestroy(): void {
+        clearInterval(this.time);
     }
 
 }
